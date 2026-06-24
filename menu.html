@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu | Aurora Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/menu.css">
+</head>
+
+<body>
+  <header class="site-header" id="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">Aurora Table</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-button"
+        aria-label="Open navigation"><span></span><span></span><span></span></label>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html" class="active">Menu</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="reservation.html" class="nav-cta">Reserve</a>
+      </div>
+    </nav>
+  </header>
+  <div class="cartBar" id="itemsCarts">
+  </div>
+
+  <form class="searchDish" id="searchTool">
+    <div>
+      <input type="text" placeholder="Search Dish" class="searchBar" id="dishSearchText">
+    </div>
+    <div>
+      <label><input type="checkbox" name="dishType" value="Veg">Veg</label>
+      <label><input type="checkbox" name="dishType" value="Nonveg">Nonveg</label>
+      <label><input type="checkbox" name="dishType" value="Vegan">Vegan</label>
+      <label><input type="checkbox" name="dishType" value="Egg">Egg</label>
+    </div>
+
+    <div>
+      <select id="countrySelect" class="dropdown">
+        <option value=""> -- Country --</option>
+      </select>
+    </div>
+    <div>
+      <button id="searchResult">Apply Filters -></button>
+      <button type="reset"> Reset</button>
+    </div>
+  </form>
+  <main id="main">
+    <section class="page-hero menu-hero">
+      <p class="eyebrow">Our Menu</p>
+      <h1>International dishes prepared with luxury details.</h1>
+    </section>
+
+    <div class="ft">
+      <i class="fa-solid fa-cart-arrow-down" style="color: rgb(0, 76, 255); font-size: 20px;" id="cartShow"></i>
+      <div id="filterToolTip" style="display: flex; align-items: center;">
+        <div class="filter"><i class="fa-solid fa-sliders" style="color: rgb(109, 33, 33);"></i> </div>
+        <div>
+          <h3 style="font-size: 20px; margin-left: 10px;color: rgb(96, 22, 22);">Filter</h3>
+        </div>
+      </div>
+    </div>
+    <section class="section menu-section">
+      <div class="section-heading menu-heading">
+        <div>
+          <p class="eyebrow dark">Curated Menu</p>
+          <h2>Explore our international signature dishes.</h2>
+
+        </div>
+        <p>Each plate is marked with its food specification so guests can choose confidently.</p>
+      </div>
+
+
+      <div class="menu-card-grid" id="mainGrid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Aurora Table</p>
+    <p>Premium international dining | Open daily 12 PM - 11 PM</p>
+  </footer>
+
+  <script type="module" src="./js/product.js"></script>
+
+</body>
+
+</html>

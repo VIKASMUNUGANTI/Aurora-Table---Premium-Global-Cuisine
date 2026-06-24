@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Aurora Table</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/gallery.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <a class="brand" href="index.html">Aurora Table</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle">
+      <label for="nav-toggle" class="nav-button" aria-label="Open navigation"><span></span><span></span><span></span></label>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="reservation.html" class="nav-cta">Reserve</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="page-hero gallery-hero">
+      <p class="eyebrow">Gallery</p>
+      <h1>A look inside the dining room, dishes, and evenings.</h1>
+    </section>
+
+    <section class="section immersive-gallery">
+      <div class="section-heading gallery-heading">
+        <div>
+          <p class="eyebrow dark">Visual Experience</p>
+          <h2>Move through the mood, craft, and flavor of Aurora Table.</h2>
+        </div>
+        <p>Hover each frame to reveal the story behind the dish, room, or chef moment.</p>
+      </div>
+
+      <input type="radio" name="gallery-filter" id="gallery-all" checked>
+      <input type="radio" name="gallery-filter" id="gallery-food">
+      <input type="radio" name="gallery-filter" id="gallery-interior">
+      <input type="radio" name="gallery-filter" id="gallery-chef">
+
+      <div class="gallery-controls">
+        <label for="gallery-all">All</label>
+        <label for="gallery-food">Food</label>
+        <label for="gallery-interior">Interior</label>
+        <label for="gallery-chef">Chef</label>
+      </div>
+
+      <div class="gallery-showcase">
+        <article class="gallery-tile feature-tile food">
+          <img src="https://images.unsplash.com/photo-1484659619207-9165d119dafe?auto=format&fit=crop&w=1100&q=85" alt="Elegant plated seafood dish">
+          <div class="gallery-overlay">
+            <span>Signature Plate</span>
+            <h3>Citrus Seafood Composition</h3>
+            <p>A clean, jewel-toned plate finished with herbs, oil, and a fine-dining touch.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile interior">
+          <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85" alt="Restaurant table service">
+          <div class="gallery-overlay">
+            <span>Dining Room</span>
+            <h3>White-Glove Service</h3>
+            <p>Tables set for calm evenings, warm conversation, and careful pacing.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile chef">
+          <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=900&q=85" alt="Chef preparing food in a kitchen">
+          <div class="gallery-overlay">
+            <span>Chef Counter</span>
+            <h3>Open Kitchen Craft</h3>
+            <p>Every course is finished by hand with precision and restraint.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile interior tall-tile">
+          <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=900&q=85" alt="Warm restaurant seating area">
+          <div class="gallery-overlay">
+            <span>Atmosphere</span>
+            <h3>Golden Evening Light</h3>
+            <p>Soft lighting, polished surfaces, and a dining room designed to linger.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile food">
+          <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=85" alt="Premium grilled entree">
+          <div class="gallery-overlay">
+            <span>Grill</span>
+            <h3>Charred Premium Entree</h3>
+            <p>Deep caramelization, bright garnish, and balanced richness.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile food">
+          <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=900&q=85" alt="Elegant dessert plate">
+          <div class="gallery-overlay">
+            <span>Dessert</span>
+            <h3>Vanilla and Berry Finale</h3>
+            <p>A graceful ending with cream, fruit, pastry, and shine.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile chef wide-tile">
+          <img src="https://images.unsplash.com/photo-1574966739987-65e38db0f7ce?auto=format&fit=crop&w=1100&q=85" alt="Chef plating a fine dining dish">
+          <div class="gallery-overlay">
+            <span>Plating</span>
+            <h3>Last Detail Before Service</h3>
+            <p>The final garnish is where flavor, form, and timing meet.</p>
+          </div>
+        </article>
+
+        <article class="gallery-tile food">
+          <img src="https://images.unsplash.com/photo-1617196034796-73dfa7b1fd56?auto=format&fit=crop&w=900&q=85" alt="Japanese sushi platter">
+          <div class="gallery-overlay">
+            <span>Japan</span>
+            <h3>Omakase Sushi Selection</h3>
+            <p>Clean cuts, balanced rice, and a quiet luxury finish.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="gallery-stats">
+        <div><strong>58</strong><span>International dishes</span></div>
+        <div><strong>12</strong><span>Private dining setups</span></div>
+        <div><strong>5</strong><span>Course tasting menu</span></div>
+      </div>
+
+      <div class="gallery-reserve">
+        <p class="eyebrow">Experience It Live</p>
+        <h2>Reserve a table and see the evening unfold in person.</h2>
+        <a href="reservation.html" class="btn primary">Book Gallery Night</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Aurora Table</p>
+    <p>Premium international dining | Open daily 12 PM - 11 PM</p>
+  </footer>
+</body>
+</html>
