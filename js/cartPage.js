@@ -23,6 +23,17 @@ function getCartTotal(items) {
   return items.reduce((sum, item) => sum + Number(item.price) * (item.quantity || 1), 0);
 }
 
+function getSavedOrders() {
+  return JSON.parse(localStorage.getItem("orders")) || [];
+}
+
+function saveOrder(order) {
+  const orders = getSavedOrders();
+  orders.unshift(order);
+  localStorage.setItem("orders", JSON.stringify(orders));
+  localStorage.setItem("latestOrder", JSON.stringify(order));
+}
+
 function renderCartPage() {
   const currentUser = getCurrentUser();
   const cartItems = getCartItems();
@@ -127,9 +138,10 @@ orderButton.addEventListener("click", () => {
     userEmail: currentUser.email,
     items: cartItems,
     total: getCartTotal(cartItems),
+    createdAt: new Date().toISOString(),
   };
 
-  localStorage.setItem("latestOrder", JSON.stringify(order));
+  saveOrder(order);
   saveCartItems([]);
   window.location.href = "order.html";
 });

@@ -40,14 +40,15 @@
         <h2>Reserve for dining room, lounge, or private events.</h2>
         <p>For parties over eight guests, our events team can create a custom menu with international courses and wine pairings.</p>
       </div>
-      <form class="form reservation-form">
-        <label>Full Name<input type="text" placeholder="Guest name"></label>
-        <label>Email<input type="email" placeholder="guest@email.com"></label>
-        <label>Date<input type="date"></label>
-        <label>Time<input type="time"></label>
-        <label>Guests<select><option>2 Guests</option><option>4 Guests</option><option>6 Guests</option><option>8 Guests</option><option>Private Event</option></select></label>
-        <label>Dining Preference<select><option>Main Dining Room</option><option>Chef's Counter</option><option>Wine Lounge</option><option>Private Room</option></select></label>
+      <form class="form reservation-form" id="reservationForm">
+        <label>Full Name<input type="text" name="fullName" placeholder="Guest name" required></label>
+        <label>Email<input type="email" name="email" placeholder="guest@email.com" required></label>
+        <label>Date<input type="date" name="date" required></label>
+        <label>Time<input type="time" name="time" required></label>
+        <label>Guests<select name="guests" required><option>2 Guests</option><option>4 Guests</option><option>6 Guests</option><option>8 Guests</option><option>Private Event</option></select></label>
+        <label>Dining Preference<select name="preference" required><option>Main Dining Room</option><option>Chef's Counter</option><option>Wine Lounge</option><option>Private Room</option></select></label>
         <button type="submit" class="btn primary">Request Reservation</button>
+        <p class="form-message" id="reservationMessage" aria-live="polite"></p>
       </form>
     </section>
   </main>
@@ -57,5 +58,6 @@
     <p>Premium international dining | Open daily 12 PM - 11 PM</p>
   </footer>
   <script src="js/auth.js"></script>
+  <script src="js/reservationPage.js"></script>
 </body>
 </html>

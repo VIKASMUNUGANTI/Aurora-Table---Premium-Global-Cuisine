@@ -17,6 +17,7 @@ function renderAuthNavigation() {
   if (!currentUser) {
     authNav.innerHTML = `
       <a href="cart.html">Cart</a>
+      <a href="orders.html">Orders</a>
       <a href="Credentials/Login/login.html">Login / Sign-up</a>
     `;
     return;
@@ -24,6 +25,7 @@ function renderAuthNavigation() {
 
   authNav.innerHTML = `
     <a href="cart.html">Cart</a>
+    <a href="orders.html">Orders</a>
     <span class="nav-user">${currentUser.username}</span>
     <button type="button" class="nav-logout" id="logoutButton">Logout</button>
   `;

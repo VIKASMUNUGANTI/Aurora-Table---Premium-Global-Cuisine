@@ -1,68 +1,19 @@
 /* Reservation page styles for reservation.html. */
 
-.intro-grid > p,
-.feature-copy p,
-.story-layout p,
-.reserve-layout p {
-  color: var(--muted);
-  font-size: 1.04rem;
-}
-
-@media (max-width: 860px) {
-  .intro-grid,
-  .feature-band,
-  .story-layout,
-  .contact-layout,
-  .reserve-layout {
-    flex-direction: column;
-  }
-
-  .feature-copy,
-        .menu-category,
-        .contact-info,
-        .form {
-          padding: 24px;
-        }
-}
-
-@media (max-width: 560px) {
-  .dish-card:hover,
-        .menu-card:hover,
-        .gallery-tile:hover,
-        .values div:hover,
-        .menu-category:hover,
-        .contact-info:hover,
-        .form:hover {
-          transform: translateY(-4px);
-        }
-}
-
-.story-layout,
-.contact-layout,
 .reserve-layout {
-  display: flex;
-  gap: 48px;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(28px, 5vw, 56px);
   align-items: center;
 }
 
-.story-layout > :first-child,
-.contact-layout > :first-child,
-.reserve-layout > :first-child {
-  flex: 0.92 1 0;
+.reserve-layout > * {
   min-width: 0;
 }
 
-.story-layout > :last-child,
-.contact-layout > :last-child,
-.reserve-layout > :last-child {
-  flex: 1.08 1 0;
-  min-width: 0;
-}
-
-.form textarea,
-.form .btn,
-.reservation-form .btn {
-  flex-basis: 100%;
+.reserve-layout p {
+  color: var(--muted);
+  font-size: 1.04rem;
 }
 
 .contact-info,
@@ -83,8 +34,7 @@
 }
 
 .form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 18px;
 }
 
@@ -119,33 +69,49 @@
 }
 
 .reservation-form {
-  flex-direction: row;
-  flex-wrap: wrap;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .reservation-form label {
-  flex: 1 1 calc((100% - 18px) / 2);
   min-width: 0;
 }
 
+.reservation-form .btn,
+.form-message {
+  grid-column: 1 / -1;
+}
+
+.form-message {
+  min-height: 1.4em;
+  color: #2c7b4b;
+  font-weight: 800;
+}
+
 @media (max-width: 860px) {
-  .intro-grid,
-  .feature-band,
-  .story-layout,
-  .contact-layout,
   .reserve-layout {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    align-items: start;
   }
 
-  .feature-copy,
-        .menu-category,
-        .contact-info,
-        .form {
-          padding: 24px;
-        }
+  .form {
+    padding: 24px;
+  }
+}
 
+@media (max-width: 600px) {
   .reservation-form {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+
+  .reservation-hero {
+    min-height: 54vh;
+    padding-inline: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .form {
+    padding: 20px;
   }
 }
 
