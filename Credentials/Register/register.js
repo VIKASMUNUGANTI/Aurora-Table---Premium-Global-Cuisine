@@ -136,6 +136,6 @@ function handleRegister(event) {
     form.classList.add("is-success");
 
     setTimeout(() => {
-        window.location.href = "/Credentials/Login/login.html";
-    },200);
+        window.location.href = "../../index.html";
+    }, 500);
 }

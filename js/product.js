@@ -258,16 +258,43 @@ function renderCart() {
   const cartItems = getCartItems();
 
   if (!currentUser) {
-    itemsCarts.innerHTML = `<p class="cart-empty">Login to keep your own cart.</p>`;
+    itemsCarts.innerHTML = `
+      <div class="cartHeader">
+        <h2>Your Cart</h2>
+        <a class="cartCheckout" href="Credentials/Login/login.html">Login</a>
+      </div>
+      <p class="cart-empty">Login to keep your own cart.</p>
+    `;
     return;
   }
 
   if (cartItems.length === 0) {
-    itemsCarts.innerHTML = `<p class="cart-empty">Your cart is empty.</p>`;
+    itemsCarts.innerHTML = `
+      <div class="cartHeader">
+        <h2>Your Cart</h2>
+        <a class="cartCheckout" href="cart.html">Open Cart</a>
+      </div>
+      <p class="cart-empty">Your cart is empty.</p>
+    `;
     return;
   }
 
-  itemsCarts.innerHTML = cartItems.map(createCartItem).join("");
+  const finalAmount = cartItems.reduce(
+    (sum, item) => sum + Number(item.price) * (item.quantity || 1),
+    0
+  );
+
+  itemsCarts.innerHTML = `
+    <div class="cartHeader">
+      <h2>Your Cart</h2>
+      <a class="cartCheckout" href="cart.html">Open Cart</a>
+    </div>
+    <div class="cartDrawerTotal">
+      <span>${cartItems.length} reserved dish${cartItems.length === 1 ? "" : "es"}</span>
+      <strong>Final Amount: $${finalAmount.toFixed(2)}</strong>
+    </div>
+    ${cartItems.map(createCartItem).join("")}
+  `;
 }
 
 function addDishToCart(id) {
@@ -334,16 +361,5 @@ function toggleFilter() {
 }
 
 function dragCart() {
-  if (
-    itemsCarts.style.right === "" ||
-    itemsCarts.style.right === "-400px"
-  ) {
-    itemsCarts.style.right = "0";
-    document.getElementById("main").style.width = "74%";
-    document.getElementById("site-header").style.width = "74%";
-  } else {
-    itemsCarts.style.right = "-400px";
-    document.getElementById("main").style.width = "100%";
-    document.getElementById("site-header").style.width = "100%";
-  }
+  itemsCarts.classList.toggle("is-open");
 }

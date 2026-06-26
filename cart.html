@@ -4,23 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Page | Aurora Table</title>
+  <title>Cart | Aurora Table</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/cart.css">
 </head>
 
-<body class="product-template">
+<body>
   <header class="site-header">
     <nav class="navbar">
       <a class="brand" href="index.html">Aurora Table</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-button"
-        aria-label="Open navigation"><span></span><span></span><span></span></label>
+      <label for="nav-toggle" class="nav-button" aria-label="Open navigation"><span></span><span></span><span></span></label>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -33,10 +30,20 @@
     </nav>
   </header>
 
-  <div id="toast"></div>
-  <main id="singleProductPage">
-  </main>
+  <main>
+    <section class="page-hero cart-hero">
+      <p class="eyebrow">Reserved Dishes</p>
+      <h1>Your cart is ready for review.</h1>
+    </section>
 
+    <section class="section cart-layout">
+      <div class="cart-list" id="cartItems"></div>
+      <aside class="cart-total-panel">
+        <div class="cart-summary" id="cartSummary"></div>
+        <button type="button" class="btn primary" id="placeOrder">Place Order</button>
+      </aside>
+    </section>
+  </main>
 
   <footer class="footer">
     <p>Aurora Table</p>
@@ -44,7 +51,7 @@
   </footer>
 
   <script src="js/auth.js"></script>
-  <script type="module" src="./js/singleProductPage.js"></script>
+  <script src="js/cartPage.js"></script>
 </body>
 
 </html>

@@ -4,23 +4,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Page | Aurora Table</title>
+  <title>Order Placed | Aurora Table</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/common.css">
-  <link rel="stylesheet" href="css/product.css">
+  <link rel="stylesheet" href="css/cart.css">
 </head>
 
-<body class="product-template">
+<body>
   <header class="site-header">
     <nav class="navbar">
       <a class="brand" href="index.html">Aurora Table</a>
       <input type="checkbox" id="nav-toggle" class="nav-toggle">
-      <label for="nav-toggle" class="nav-button"
-        aria-label="Open navigation"><span></span><span></span><span></span></label>
+      <label for="nav-toggle" class="nav-button" aria-label="Open navigation"><span></span><span></span><span></span></label>
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -33,10 +30,23 @@
     </nav>
   </header>
 
-  <div id="toast"></div>
-  <main id="singleProductPage">
-  </main>
+  <main>
+    <section class="page-hero order-hero">
+      <p class="eyebrow">Order Confirmed</p>
+      <h1>Your reserved dishes have been ordered.</h1>
+    </section>
 
+    <section class="section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow dark">Order Details</p>
+          <h2>Reserved dishes and quantity.</h2>
+        </div>
+        <div class="order-summary" id="orderSummary"></div>
+      </div>
+      <div class="order-list" id="orderItems"></div>
+    </section>
+  </main>
 
   <footer class="footer">
     <p>Aurora Table</p>
@@ -44,7 +54,7 @@
   </footer>
 
   <script src="js/auth.js"></script>
-  <script type="module" src="./js/singleProductPage.js"></script>
+  <script src="js/orderPage.js"></script>
 </body>
 
 </html>

@@ -60,6 +60,10 @@ function renderProduct(item) {
           >
             Reserve This Dish
           </button>
+
+          <a class="btn secondary" href="cart.html">
+            View Cart
+          </a>
         </div>
 
       </div>
@@ -87,6 +91,7 @@ function renderProduct(item) {
 
           if (addDishToCart(item)) {
             showToast(`${item.foodName} added to cart!`);
+            document.getElementById("reserveProduct").textContent = "Added";
           }
       });
 
