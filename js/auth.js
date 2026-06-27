@@ -10,7 +10,7 @@ function logoutUser() {
 function renderAuthNavigation() {
   const authNav = document.querySelector("[data-auth-nav]");
 
-  if (!authNav) return;
+  // if (!authNav) return;
 
   const currentUser = getCurrentUser();
 
