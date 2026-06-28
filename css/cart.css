@@ -66,6 +66,26 @@
   font-weight: 900;
 }
 
+.order-summary .cancel-order-btn,
+.order-summary .cancel-expired {
+  justify-self: start;
+  border-radius: 999px;
+  padding: 10px 14px;
+  font-weight: 900;
+}
+
+.order-summary .cancel-order-btn {
+  border: none;
+  color: white;
+  background: #9d2d24;
+  cursor: pointer;
+}
+
+.order-summary .cancel-expired {
+  color: var(--muted);
+  background: rgba(23, 21, 18, 0.08);
+}
+
 .quantity-control {
   display: inline-flex;
   align-items: center;

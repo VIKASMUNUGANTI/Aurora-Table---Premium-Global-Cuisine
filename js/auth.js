@@ -10,14 +10,13 @@ function logoutUser() {
 function renderAuthNavigation() {
   const authNav = document.querySelector("[data-auth-nav]");
 
-  // if (!authNav) return;
+  if (!authNav) return;
 
   const currentUser = getCurrentUser();
 
   if (!currentUser) {
     authNav.innerHTML = `
       <a href="cart.html">Cart</a>
-      <a href="orders.html">Orders</a>
       <a href="Credentials/Login/login.html">Login / Sign-up</a>
     `;
     return;

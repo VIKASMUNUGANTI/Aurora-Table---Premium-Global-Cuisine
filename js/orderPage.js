@@ -2,6 +2,20 @@ const orderContainer = document.getElementById("orderItems");
 const orderSummary = document.getElementById("orderSummary");
 const latestOrder = JSON.parse(localStorage.getItem("latestOrder")) || null;
 const currentUser = JSON.parse(localStorage.getItem("currentUser")) || null;
+const cancelTimeLimit = 30 * 60 * 1000;
+
+function canCancelOrder(order) {
+  return Date.now() - new Date(order.createdAt || order.id).getTime() < cancelTimeLimit;
+}
+
+function cancelLatestOrder() {
+  const orders = JSON.parse(localStorage.getItem("orders")) || [];
+  const updatedOrders = orders.filter((order) => String(order.id) !== String(latestOrder.id));
+
+  localStorage.setItem("orders", JSON.stringify(updatedOrders));
+  localStorage.removeItem("latestOrder");
+  window.location.href = "orders.html";
+}
 
 if (!currentUser) {
   orderContainer.innerHTML = `
@@ -24,6 +38,8 @@ if (!currentUser) {
   `;
   orderSummary.innerHTML = "";
 } else {
+  const cancelAllowed = canCancelOrder(latestOrder);
+
   orderContainer.innerHTML = latestOrder.items.map((item) => {
     const quantity = item.quantity || 1;
     const total = Number(item.price * quantity).toFixed(2);
@@ -44,5 +60,11 @@ if (!currentUser) {
   orderSummary.innerHTML = `
     <span>Order #${latestOrder.id}</span>
     <strong>Final Amount: $${Number(latestOrder.total).toFixed(2)}</strong>
+    ${cancelAllowed ? `<button type="button" class="cancel-order-btn" id="cancelLatestOrder">Cancel Order</button>` : `<span class="cancel-expired">Cancel time expired</span>`}
   `;
+
+  if (cancelAllowed) {
+    document.getElementById("cancelLatestOrder").addEventListener("click", cancelLatestOrder);
+    setTimeout(() => window.location.reload(), cancelTimeLimit - (Date.now() - new Date(latestOrder.createdAt || latestOrder.id).getTime()));
+  }
 }
