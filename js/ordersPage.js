@@ -15,15 +15,6 @@ function formatDateTime(value) {
   }).format(new Date(value));
 }
 
-function escapeHtml(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
 function isCurrentUserEmail(email) {
   return email?.toLowerCase() === currentUser?.email?.toLowerCase();
 }
@@ -33,14 +24,7 @@ function canCancelOrder(order) {
 }
 
 function getOrders() {
-  const orders = getStoredArray("orders");
-  const latestOrder = JSON.parse(localStorage.getItem("latestOrder")) || null;
-
-  if (latestOrder && !orders.some((order) => String(order.id) === String(latestOrder.id))) {
-    return [latestOrder, ...orders].filter((order) => isCurrentUserEmail(order.userEmail));
-  }
-
-  return orders.filter((order) => isCurrentUserEmail(order.userEmail));
+  return getStoredArray("orders").filter((order) => isCurrentUserEmail(order.userEmail));
 }
 
 function cancelOrder(orderId) {
@@ -48,18 +32,8 @@ function cancelOrder(orderId) {
     const isSelectedOrder = String(order.id) === String(orderId);
     return !isSelectedOrder || !isCurrentUserEmail(order.userEmail);
   });
-  const latestOrder = JSON.parse(localStorage.getItem("latestOrder")) || null;
 
   localStorage.setItem("orders", JSON.stringify(orders));
-
-  if (
-    latestOrder &&
-    String(latestOrder.id) === String(orderId) &&
-    isCurrentUserEmail(latestOrder.userEmail)
-  ) {
-    localStorage.removeItem("latestOrder");
-  }
-
   renderOrders();
 }
 
@@ -89,7 +63,7 @@ function renderOrders() {
   ordersList.innerHTML = orders.map((order) => {
     const items = (order.items || []).map((item) => {
       const quantity = item.quantity || 1;
-      return `<span>${escapeHtml(item.foodName)} x ${quantity}</span>`;
+      return `<span>${item.foodName} x ${quantity}</span>`;
     }).join("");
     const canCancel = canCancelOrder(order);
 
@@ -97,7 +71,7 @@ function renderOrders() {
       <article class="record-card">
         <div>
           <p class="eyebrow dark">Order #${order.id}</p>
-          <h3>${escapeHtml(order.userEmail || "Your order")}</h3>
+          <h3>${order.userEmail || "Your order"}</h3>
           <div class="record-meta">
             <span>Placed: ${formatDateTime(order.createdAt || order.id)}</span>
             <span>Items: ${(order.items || []).length}</span>
@@ -148,17 +122,17 @@ function renderReservationRequests() {
     <article class="record-card">
       <div>
         <p class="eyebrow dark">Request #${request.id}</p>
-        <h3>${escapeHtml(request.fullName)}</h3>
+        <h3>${request.fullName}</h3>
         <div class="record-meta">
-          <span>Email: ${escapeHtml(request.email)}</span>
-          <span>Guests: ${escapeHtml(request.guests)}</span>
-          <span>Date: ${escapeHtml(request.date)}</span>
-          <span>Time: ${escapeHtml(request.time)}</span>
-          <span>Dining: ${escapeHtml(request.preference)}</span>
+          <span>Email: ${request.email}</span>
+          <span>Guests: ${request.guests}</span>
+          <span>Date: ${request.date}</span>
+          <span>Time: ${request.time}</span>
+          <span>Dining: ${request.preference}</span>
           <span>Sent: ${formatDateTime(request.createdAt)}</span>
         </div>
       </div>
-      <span class="status-pill">${escapeHtml(request.status || "Pending")}</span>
+      <span class="status-pill">${request.status || "Pending"}</span>
     </article>
   `).join("");
 }

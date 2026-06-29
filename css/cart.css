@@ -1,5 +1,4 @@
-.cart-hero,
-.order-hero {
+.cart-hero {
   background-image: linear-gradient(rgba(12, 12, 11, 0.62), rgba(12, 12, 11, 0.76)), url("https://images.unsplash.com/photo-1544148103-0773bf10d330?auto=format&fit=crop&w=1800&q=85");
 }
 
@@ -10,14 +9,12 @@
   align-items: start;
 }
 
-.cart-list,
-.order-list {
+.cart-list {
   display: grid;
   gap: 18px;
 }
 
 .cart-page-item,
-.order-item,
 .empty-panel,
 .cart-total-panel {
   border: 1px solid var(--line);
@@ -26,15 +23,13 @@
   box-shadow: 0 16px 42px rgba(16, 16, 15, 0.08);
 }
 
-.cart-page-item,
-.order-item {
+.cart-page-item {
   display: grid;
   grid-template-columns: 220px minmax(0, 1fr);
   overflow: hidden;
 }
 
-.cart-page-item img,
-.order-item img {
+.cart-page-item img {
   height: 100%;
   min-height: 190px;
   object-fit: cover;
@@ -46,8 +41,7 @@
   padding: 24px;
 }
 
-.cart-page-content p,
-.order-item p {
+.cart-page-content p {
   color: var(--muted);
 }
 
@@ -60,30 +54,9 @@
 
 .cart-page-actions strong,
 .line-total,
-.cart-total-panel strong,
-.order-item strong {
+.cart-total-panel strong {
   color: var(--gold);
   font-weight: 900;
-}
-
-.order-summary .cancel-order-btn,
-.order-summary .cancel-expired {
-  justify-self: start;
-  border-radius: 999px;
-  padding: 10px 14px;
-  font-weight: 900;
-}
-
-.order-summary .cancel-order-btn {
-  border: none;
-  color: white;
-  background: #9d2d24;
-  cursor: pointer;
-}
-
-.order-summary .cancel-expired {
-  color: var(--muted);
-  background: rgba(23, 21, 18, 0.08);
 }
 
 .quantity-control {
@@ -122,8 +95,7 @@
   padding: 24px;
 }
 
-.cart-summary,
-.order-summary {
+.cart-summary {
   display: grid;
   gap: 8px;
 }
@@ -140,16 +112,6 @@
   padding: 32px;
 }
 
-.order-item {
-  grid-template-columns: 180px minmax(0, 1fr);
-}
-
-.order-item > div {
-  display: grid;
-  gap: 10px;
-  padding: 22px;
-}
-
 @media (max-width: 900px) {
   .cart-layout {
     grid-template-columns: 1fr;
@@ -161,13 +123,11 @@
 }
 
 @media (max-width: 640px) {
-  .cart-page-item,
-  .order-item {
+  .cart-page-item {
     grid-template-columns: 1fr;
   }
 
-  .cart-page-item img,
-  .order-item img {
+  .cart-page-item img {
     aspect-ratio: 1.45 / 1;
     min-height: 0;
   }

@@ -31,7 +31,6 @@ function saveOrder(order) {
   const orders = getSavedOrders();
   orders.unshift(order);
   localStorage.setItem("orders", JSON.stringify(orders));
-  localStorage.setItem("latestOrder", JSON.stringify(order));
 }
 
 function renderCartPage() {
@@ -143,7 +142,7 @@ orderButton.addEventListener("click", () => {
 
   saveOrder(order);
   saveCartItems([]);
-  window.location.href = "order.html";
+  window.location.href = "orders.html";
 });
 
 renderCartPage();
